@@ -1,0 +1,5 @@
+"use strict";angular.module("myApp",["ngRoute","myApp.view1","myApp.view2","myApp.version"]).config(["$routeProvider",function(e){e.otherwise({redirectTo:"/view1"})}]);
+"use strict";angular.module("myApp.view1",["ngRoute"]).config(["$routeProvider",function(e){e.when("/view1",{templateUrl:"view1/view1.html",controller:"View1Ctrl"})}]).controller("View1Ctrl",[function(){}]);
+"use strict";describe("myApp.view1 module",function(){beforeEach(module("myApp.view1")),describe("view1 controller",function(){it("should ....",inject(function(e){var i=e("View1Ctrl");expect(i).toBeDefined()}))})});
+"use strict";angular.module("myApp.view2",["ngRoute"]).config(["$routeProvider",function(e){e.when("/view2",{templateUrl:"view2/view2.html",controller:"View2Ctrl"})}]).controller("View2Ctrl",[function(){}]);
+"use strict";describe("myApp.view2 module",function(){beforeEach(module("myApp.view2")),describe("view2 controller",function(){it("should ....",inject(function(e){var i=e("View2Ctrl");expect(i).toBeDefined()}))})});

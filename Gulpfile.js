@@ -16,10 +16,20 @@ gulp.task('sass', function () {
        }));
 });
 
+gulp.task('js', function () {
+    return gulp.src(['./app/**/*.js','!./app/bower_components/**/*.js','!./app/components/**/*.js'])
+        .pipe(uglify())
+        .pipe(concat('all.js'))
+        .pipe(gulp.dest('./app/js/'))
+        .pipe(notify({
+            message : "uglifyied js"
+        }))
+});
+
 gulp.task('watch', function () {
    gulp.watch('app/sass/**/*.scss', function () {
       gulp.run('sass');
    });
 });
 
-gulp.task('default', ['sass', 'watch']);
+gulp.task('default', ['sass']);
