@@ -37,8 +37,10 @@
                     descriptionHeight = $description.outerHeight(),
                     thumbHeight = $thumb.outerHeight();
 
-                var scrollRapport = (windowHeight - thumbHeight - offsetX) / ( descriptionHeight - windowHeight);
-                return parseInt(( $window.scrollTop() * scrollRapport ) + offsetX);
+                var scrollRapport = (descriptionHeight - thumbHeight ) / ( descriptionHeight - windowHeight),
+                    temp_top = parseInt(( $window.scrollTop() * scrollRapport ) + offsetX),
+                    top = temp_top + thumbHeight >= descriptionHeight ? descriptionHeight - thumbHeight: temp_top ;
+                return top;
 
             }
         });
